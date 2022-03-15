@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.infnet.moviesinfnet.ui.fragments.SearchFragment"
+        android:label="@string/trending_now">
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toWatchFragment"
+        android:name="com.infnet.moviesinfnet.ui.fragments.ToWatchFragment"
+        android:label="@string/towatch">
+        <action
+            android:id="@+id/action_toWatchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/watchedFragment"
+        android:name="com.infnet.moviesinfnet.ui.fragments.WatchedFragment"
+        android:label="@string/watched_fragment_title">
+        <action
+            android:id="@+id/action_watchedFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.infnet.moviesinfnet.ui.fragments.DetailsFragment"
+        android:label="DetailsFragment">
+        <argument
+            android:name="movieToDisplay"
+            app:argType="com.infnet.moviesinfnet.model.LocalMovie" />
+    </fragment>
+</navigation>

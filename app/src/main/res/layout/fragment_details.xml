@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.infnet.moviesinfnet.model.LocalMovie"
+            />
+
+        <variable
+            name="viewModel"
+            type="com.infnet.moviesinfnet.vm.DetailsViewModel"
+            />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cdRoot"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toTopOf="@id/buttonsArea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/medium_margin"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgPoster"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/movie_poster"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/proBarImageLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/imgPoster"
+                        app:layout_constraintEnd_toEndOf="@+id/imgPoster"
+                        app:layout_constraintStart_toStartOf="@+id/imgPoster"
+                        app:layout_constraintTop_toTopOf="@+id/imgPoster"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtOverView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginEnd="12dp"
+                        android:text="@{movie.overview}"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgPoster"
+                        tools:text="Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions."
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtVoteAvg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="12dp"
+                        android:text='@{String.format("%.1f", movie.voteAverage)}'
+                        android:textAppearance="?attr/textAppearanceHeadline4"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtOverView"
+                        tools:text="8.3"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtPopularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="@dimen/big_margin"
+                        android:text="@{@string/popularity_format(movie.popularity)}"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtOverView"
+                        tools:text="Popularity 5431.13"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtVotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="@dimen/big_margin"
+                        android:text="@{@string/vote_format(movie.voteCount)}"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtPopularity"
+                        tools:text="Votes 14531"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/votes_icon"
+                        android:padding="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtVoteAvg"
+                        app:layout_constraintStart_toEndOf="@id/txtVoteAvg"
+                        app:layout_constraintTop_toTopOf="@+id/txtVoteAvg"
+                        app:srcCompat="@drawable/ic_outline_star_outline_24"
+
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/buttonsArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="120dp"
+                android:gravity="top"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <Button
+                    android:id="@+id/butAddToWatch"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_weight="1"
+                    android:text="@string/towatch"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_outline_movie_24"
+                    />
+
+                <Button
+                    android:id="@+id/butAddToWatched"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:layout_weight="1"
+                    android:text="@string/watched"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_outline_task_alt_24"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

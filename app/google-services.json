@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669647805988",
+    "project_id": "moviesinfnet",
+    "storage_bucket": "moviesinfnet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669647805988:android:18963a59ec8806adf782b1",
+        "android_client_info": {
+          "package_name": "com.infnet.moviesinfnet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669647805988-1ibvhc9j9cdhb8gak419skuu5ug5uhdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_Iee_5jOX8U-uCJ1eDEfzr5Zo9dUihS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669647805988-1ibvhc9j9cdhb8gak419skuu5ug5uhdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search" />
+    <item
+        android:id="@+id/toWatchFragment"
+        android:icon="@drawable/ic_outline_movie_24"
+        android:title="@string/towatch" />
+    <item
+        android:id="@+id/watchedFragment"
+        android:icon="@drawable/ic_outline_task_alt_24"
+        android:title="@string/watched" />
+
+</menu>

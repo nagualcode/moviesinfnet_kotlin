@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding_fragment">18dp</dimen>
+    <dimen name="tiny_margin">3dp</dimen>
+    <dimen name="small_margin">5dp</dimen>
+    <dimen name="medium_margin">9dp</dimen>
+    <dimen name="big_margin">17dp</dimen>
+    <dimen name="huge_margin">33dp</dimen>
+    <dimen name="bottom_recycler_padding">63dp</dimen>
+</resources>
